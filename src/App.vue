@@ -1,6 +1,10 @@
 <template>
+  <div class="btn-list">
+    <a href="" @click.prevent="printResume">打印</a>
+    <router-link to="/resume-one">模板1</router-link>
+  </div>
   <main>
-    <ResumeOne />
+    <router-view />
   </main>
 </template>
 
@@ -11,19 +15,44 @@ import ResumeOne from './views/ResumeOne.vue';
 export default defineComponent({
   components: { ResumeOne },
   name: 'Home',
-  
+
   setup() {
-    return {};
-  },
+    const printResume = () => {
+      
+    };
+    return {
+      printResume
+    };
+  }
 });
 </script>
 
 <style lang="scss" scoped>
+.btn-list {
+  width: 1024px;
+  margin: 0 auto 10px;
+  a {
+    display: inline-block;
+    background-color: #00c9b8;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 10px 0;
+    border-radius: 5px;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background-color: #00bdc4;
+      transform: scale(1.1);
+    }
+  }
+}
+
 main {
   width: 1024px;
   min-height: 1448px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   border-radius: 5px;
   background-color: #fff;
   overflow: hidden;
