@@ -66,7 +66,7 @@ export default defineComponent({
   width: 100%;
   height: 260px;
   background: linear-gradient(to right, #00c9b8, #00bdc4);
-  padding: 30px 50px 10px;
+  padding: 1.875rem 3.125rem 0.625rem;
   display: flex;
   flex-direction: column;
 
@@ -79,18 +79,18 @@ export default defineComponent({
     padding: 5px 10px;
 
     h1 {
-      font-size: 46px;
-      letter-spacing: 5px;
+      font-size: 2.875rem;
+      letter-spacing: 0.3125rem;
       color: #fff;
 
       small {
-        font-size: 24px;
+        font-size: 1.5rem;
         letter-spacing: normal;
       }
     }
 
     h2 {
-      font-size: 24px;
+      font-size: 1.5rem;
       color: #fff;
     }
   }
@@ -100,7 +100,7 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     color: #fff;
-    padding: 15px 10px;
+    padding: 0.9375rem 0.625rem;
 
     &__left {
       flex: 1;

@@ -50,6 +50,8 @@ export default defineComponent({
 }
 
 .content {
+  font-size: 16px;
+
   hr {
     margin-top: 10px;
     border-bottom: 2px dashed #ccc;

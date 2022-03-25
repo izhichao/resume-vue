@@ -1,27 +1,54 @@
 <template>
-  <div class="btn-list">
-    <a href="" @click.prevent="printResume">打印</a>
-    <router-link to="/resume-one">模板1</router-link>
-  </div>
-  <main>
+  <ul class="btn-list">
+    <li><a href="" @click.prevent="printResume">打印</a></li>
+    <li><router-link to="/resume-one">模板1</router-link></li>
+    <li><router-link to="/resume-two">模板2</router-link></li>
+  </ul>
+  <main id="print_area">
     <router-view />
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, Ref, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import ResumeOne from './views/ResumeOne.vue';
+import ResumeTwo from './views/ResumeTwo.vue';
 
 export default defineComponent({
-  components: { ResumeOne },
+  components: { ResumeOne, ResumeTwo },
   name: 'Home',
 
   setup() {
+    // 打印按钮
     const printResume = () => {
-      
+      window.print();
     };
+
+    // 按钮根据模板变色
+    enum BtnColor {
+      One = '#00bdc4',
+      Two = 'black'
+    }
+    let btnColor: Ref<BtnColor> = ref(BtnColor.One);
+    const route = useRoute();
+    watch(
+      () => route.fullPath,
+      (val) => {
+        switch (val) {
+          case '/resume-one':
+            btnColor.value = BtnColor.One;
+            break;
+          case '/resume-two':
+            btnColor.value = BtnColor.Two;
+            break;
+        }
+      }
+    );
+
     return {
-      printResume
+      printResume,
+      btnColor
     };
   }
 });
@@ -29,22 +56,29 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .btn-list {
-  width: 1024px;
-  margin: 0 auto 10px;
-  a {
-    display: inline-block;
-    background-color: #00c9b8;
-    width: 50px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    margin: 0 10px 0;
-    border-radius: 5px;
-    transition: all 0.2s ease-out;
+  position: absolute;
+  right: 50%;
+  transform: translateX(590px);
 
-    &:hover {
-      background-color: #00bdc4;
-      transform: scale(1.1);
+  li {
+    &:nth-child(n + 2) {
+      margin-top: 10px;
+    }
+
+    a {
+      display: inline-block;
+      background-color: v-bind(btnColor);
+      width: 60px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin: 0 10px 0;
+      border-radius: 5px;
+      transition: transform 0.1s ease-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }
@@ -56,8 +90,9 @@ main {
   border-radius: 5px;
   background-color: #fff;
   overflow: hidden;
-  box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 15px #ccc;
   display: flex;
   flex-direction: column;
+  font-size: 16px;
 }
 </style>

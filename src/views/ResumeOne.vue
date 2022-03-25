@@ -31,6 +31,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .content {
   flex: 1;
-  padding: 20px 50px 10px;
+  padding: 1.25rem 3.125rem 0.625rem;
 }
 </style>

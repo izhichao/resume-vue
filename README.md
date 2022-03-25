@@ -1,11 +1,59 @@
-# Vue 3 + Typescript + Vite
+## 项目环境
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+- Vue3 + Vite + TypeScript
 
-## Recommended IDE Setup
+- 需要 [Node.js](https://nodejs.org/en/) 版本 >= 12.0.0。
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## 运行项目
 
-## Type Support For `.vue` Imports in TS
+安装项目依赖：
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+```shell
+npm install
+```
+
+运行项目：
+
+```shell
+npm run dev
+```
+
+## 修改数据
+
+在 src 文件夹下新建文件名为 data.ts，复制以下代码，根据接口内容初始化相应的值。
+
+```ts
+interface IBase {
+  name: string;
+  pinyin: string;
+  city: string;
+  position: string;
+  gender: string;
+  age: number;
+  web: string;
+  mail: string;
+  phone: string;
+  formatPhone: string;
+}
+
+interface IEdu {
+  school: string;
+  major: string;
+  background: string;
+  startTime: string;
+  endTiem: string;
+  course: string;
+  gpa: string;
+  prize: string;
+  certificate: string;
+}
+
+const base: IBase
+
+const edu: IEdu
+
+export { base, edu };
+```
+
+
+
