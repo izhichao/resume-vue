@@ -1,15 +1,18 @@
 <template>
   <Header />
-  <ContentTitle>教育经历</ContentTitle>
+  <div class="detail">
+    <hr />
+    <Edu />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import ContentTitle from '../components/ResumeTwo/ContentTitle.vue';
 import Header from '../components/ResumeTwo/Header.vue';
+import Edu from '../components/ResumeTwo/Edu.vue';
 
 export default defineComponent({
-  components: { Header, ContentTitle },
+  components: { Header, Edu },
   name: 'ResumeTwo',
   setup() {
     return {};
@@ -18,5 +21,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.detail {
+  padding: 0 60px;
 
+  hr {
+    border-top: 1px solid #ccc;
+  }
+}
 </style>

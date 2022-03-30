@@ -1,5 +1,5 @@
 <template>
-  <hr />
+  
   <div class="title">
     <slot></slot>
   </div>
@@ -16,12 +16,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-hr {
-  width: 90%;
-  margin: 20px auto 0;
-  border-top: 1px solid #ccc;
-}
-
 .title {
   text-align: center;
   background-color: #eee;

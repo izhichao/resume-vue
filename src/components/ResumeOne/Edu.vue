@@ -1,28 +1,33 @@
 <template>
-  <ContentTitle>教育经历</ContentTitle>
-  <div class="content">
-    <div class="content__school mt10">
-      <strong>{{ startTime }} - {{ endTiem }}</strong>
-      <strong>{{ school }}</strong>
-      <strong>{{ major }} | {{ background }}</strong>
-    </div>
+  <div class="edu">
+    <ContentTitle>教育经历</ContentTitle>
+    <div class="content">
+      <div class="content__school mt10">
+        <strong>{{ startTime }} - {{ endTime }}</strong>
+        <strong>{{ school }}</strong>
+        <strong>{{ major }} | {{ background }}</strong>
+      </div>
 
-    <div class="content__course mt10">
-      <strong>主修课程：{{ course }}</strong>
-    </div>
+      <div class="content__course mt10">
+        <strong>主修课程：</strong>
+        {{ course }}
+      </div>
 
-    <hr />
+      <hr />
 
-    <div class="content__gpa mt10">
-      <strong>GPA: {{ gpa }}</strong>
-    </div>
+      <div class="content__gpa mt10">
+        <strong>GPA: {{ gpa }}</strong>
+      </div>
 
-    <div class="content__prize mt10">
-      <strong>奖学金：{{ prize }}</strong>
-    </div>
+      <div class="content__prize mt10">
+        <strong>奖学金：</strong>
+        {{ prize }}
+      </div>
 
-    <div class="content__certificate mt10">
-      <strong>证书：{{ certificate }}</strong>
+      <div class="content__certificate mt10">
+        <strong>证书：</strong>
+        {{ certificate }}
+      </div>
     </div>
   </div>
 </template>

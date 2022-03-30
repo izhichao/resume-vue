@@ -45,16 +45,21 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { base, edu } from '../../data';
+import useColor from '../../hooks/useColor';
 export default defineComponent({
   name: 'Header',
   setup() {
     const { school, major, background } = edu;
+    // 使用自定义Hooks监听color的变化
+    const [colorOne, colorTwo] = useColor();
 
     return {
       ...base,
       school,
       major,
-      background
+      background,
+      colorOne,
+      colorTwo
     };
   }
 });
@@ -65,7 +70,7 @@ export default defineComponent({
   box-sizing: border-box;
   width: 100%;
   height: 260px;
-  background: linear-gradient(to right, #00c9b8, #00bdc4);
+  background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
   padding: 1.875rem 3.125rem 0.625rem;
   display: flex;
   flex-direction: column;

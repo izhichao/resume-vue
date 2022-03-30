@@ -1,30 +1,32 @@
 <template>
-  <ContentTitle>专业技能</ContentTitle>
-  <div class="content">
-    <ul>
-      <li v-for="item in skill" :key="item.id" v-html="item.content"></li>
-    </ul>
+  <div class="skill">
+    <ContentTitle>专业技能</ContentTitle>
+    <div class="content">
+      <ul>
+        <li v-for="item in skill" :key="item.id" v-html="item.content"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent } from 'vue';
 import ContentTitle from './ContentTitle.vue';
+import { skill } from '../../data';
+import useColor from '../../hooks/useColor';
+
 export default defineComponent({
   name: 'Edu',
   components: {
     ContentTitle
   },
   setup() {
-    const skill = reactive([
-      { id: 1, content: `熟悉<code>Vue</code>` },
-      { id: 2, content: `熟悉<code>Vue</code>` },
-      { id: 3, content: `熟悉<code>Vue</code>` },
-      { id: 4, content: `熟悉<code>Vue</code>` },
-      { id: 5, content: `熟悉<code>Vue</code>` },
-    ]);
+    const [colorOne, colorTwo] = useColor();
+
     return {
-      skill
+      skill,
+      colorOne,
+      colorTwo
     };
   }
 });
@@ -40,7 +42,7 @@ export default defineComponent({
         display: inline-block;
         width: 8px;
         height: 8px;
-        background: linear-gradient(to right, #00c9b8, #00bdc4);
+        background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
         position: absolute;
         top: 8px;
         left: 11px;

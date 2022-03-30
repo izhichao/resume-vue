@@ -1,8 +1,8 @@
 <template>
   <ul class="btn-list">
     <li><a href="" @click.prevent="printResume">打印</a></li>
-    <li><router-link to="/resume-one">模板1</router-link></li>
-    <li><router-link to="/resume-two">模板2</router-link></li>
+    <li><router-link to="/resume-one" @click="switchModel(1)">模板1</router-link></li>
+    <li><router-link to="/resume-two" @click="switchModel(2)">模板2</router-link></li>
   </ul>
   <main id="print_area">
     <router-view />
@@ -12,6 +12,8 @@
 <script lang="ts">
 import { defineComponent, Ref, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import useColor from './hooks/useColor';
+import { mainStore } from './store';
 import ResumeOne from './views/ResumeOne.vue';
 import ResumeTwo from './views/ResumeTwo.vue';
 
@@ -25,30 +27,36 @@ export default defineComponent({
       window.print();
     };
 
-    // 按钮根据模板变色
-    enum BtnColor {
-      One = '#00bdc4',
-      Two = 'black'
-    }
-    let btnColor: Ref<BtnColor> = ref(BtnColor.One);
-    const route = useRoute();
-    watch(
-      () => route.fullPath,
-      (val) => {
-        switch (val) {
-          case '/resume-one':
-            btnColor.value = BtnColor.One;
-            break;
-          case '/resume-two':
-            btnColor.value = BtnColor.Two;
-            break;
-        }
+    // 获取按钮颜色
+    const [, color] = useColor();
+
+    // 模板切换
+    const store = mainStore();
+    const switchModel = (val: number) => {
+      if (val === 1) {
+        store.activeColor = store.resumeOneThemeOne;
+      } else if (val === 2) {
+        store.activeColor = store.resumeTwo;
       }
-    );
+    };
+
+    // 初始化颜色
+    const route = useRoute();
+    const initColor = () => {
+      if (route.fullPath === '/resume-one') {
+        store.activeColor = store.resumeOneThemeOne;
+      } else if (route.fullPath === '/resume-two') {
+        store.activeColor = store.resumeTwo;
+      }
+    };
+    setTimeout(() => {
+      initColor();
+    }, 0);
 
     return {
       printResume,
-      btnColor
+      switchModel,
+      color
     };
   }
 });
@@ -67,7 +75,7 @@ export default defineComponent({
 
     a {
       display: inline-block;
-      background-color: v-bind(btnColor);
+      background-color: v-bind(color);
       width: 60px;
       height: 40px;
       line-height: 40px;

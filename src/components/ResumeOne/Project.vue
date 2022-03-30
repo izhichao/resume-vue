@@ -1,5 +1,7 @@
 <template>
-  <ContentTitle>项目经验</ContentTitle>
+  <div class="project">
+    <ContentTitle>项目经验</ContentTitle>
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,7 +14,7 @@ export default defineComponent({
   },
   setup() {
     return {};
-  },
+  }
 });
 </script>
 

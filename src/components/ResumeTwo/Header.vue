@@ -21,7 +21,6 @@
       <a :href="'tel:' + phone" class="iconfont">&#xe692;</a>
       <a :href="'mailto:' + mail" class="iconfont">&#xe908;</a>
     </div>
-    <hr />
   </div>
 </template>
 
@@ -71,7 +70,7 @@ div {
 .info {
   background-color: #fafafa;
   text-align: center;
-  padding-top: 60px;
+  padding: 60px 0 30px 0;
   color: #333;
   h2 {
     font-size: 32px;

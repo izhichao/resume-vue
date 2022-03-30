@@ -1,18 +1,27 @@
 <template>
-  <div>
+  <div class="content-title">
     <h3><slot></slot></h3>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import useColor from '../../hooks/useColor';
+
 export default defineComponent({
   name: 'ContentTitle',
+  setup() {
+    const [ colorOne, colorTwo ] = useColor();
+    return {
+      colorOne,
+      colorTwo
+    };
+  }
 });
 </script>
 
 <style lang="scss" scoped>
-div {
+.content-title {
   display: flex;
   align-items: center;
   height: 20px;
@@ -26,7 +35,7 @@ div {
   &::before {
     content: '';
     display: block;
-    background-color: #00c9b8;
+    background-color: v-bind(colorOne);
     height: 20px;
     width: 20px;
   }
@@ -35,7 +44,7 @@ div {
     flex: 1;
     content: '';
     display: block;
-    background: linear-gradient(to right, #00c9b8, #00bdc4);
+    background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
     height: 20px;
   }
 
