@@ -34,9 +34,15 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .content {
+  padding-bottom: 10px;
+
   ul {
     li {
       position: relative;
+      line-height: 24px;
+      margin-top: 15px;
+      padding-left: 30px;
+
       &::before {
         content: '';
         display: inline-block;
@@ -48,9 +54,6 @@ export default defineComponent({
         left: 11px;
         border-radius: 5px;
       }
-      line-height: 24px;
-      margin-top: 10px;
-      padding-left: 30px;
     }
   }
 }

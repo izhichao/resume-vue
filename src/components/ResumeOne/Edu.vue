@@ -2,29 +2,29 @@
   <div class="edu">
     <ContentTitle>教育经历</ContentTitle>
     <div class="content">
-      <div class="content__school mt10">
+      <div class="content__school mt">
         <strong>{{ startTime }} - {{ endTime }}</strong>
         <strong>{{ school }}</strong>
         <strong>{{ major }} | {{ background }}</strong>
       </div>
 
-      <div class="content__course mt10">
+      <div class="content__course mt">
         <strong>主修课程：</strong>
         {{ course }}
       </div>
 
-      <hr />
+      <hr class="mt"/>
 
-      <div class="content__gpa mt10">
+      <div class="content__gpa mt">
         <strong>GPA: {{ gpa }}</strong>
       </div>
 
-      <div class="content__prize mt10">
+      <div class="content__prize mt">
         <strong>奖学金：</strong>
         {{ prize }}
       </div>
 
-      <div class="content__certificate mt10">
+      <div class="content__certificate mt">
         <strong>证书：</strong>
         {{ certificate }}
       </div>
@@ -50,26 +50,25 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.mt10 {
-  margin-top: 10px;
+.mt {
+  margin-top: 15px;
 }
 
 .content {
   font-size: 16px;
+  padding-bottom: 10px;
 
   hr {
-    margin-top: 10px;
     border-bottom: 2px dashed #ccc;
   }
 
   &__school {
-    margin-top: 15px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
   }
 
   &__course {
-    margin-top: 10px;
     font-size: 14px;
   }
 }

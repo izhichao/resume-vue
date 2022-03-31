@@ -25,6 +25,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   height: 20px;
+  margin-top: 20px;
 
   h3 {
     line-height: 20px;
@@ -46,10 +47,6 @@ export default defineComponent({
     display: block;
     background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
     height: 20px;
-  }
-
-  &:nth-of-type(n + 1) {
-    margin-top: 20px;
   }
 }
 </style>
