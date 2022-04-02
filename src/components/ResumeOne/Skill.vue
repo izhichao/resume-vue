@@ -34,13 +34,13 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .content {
-  padding-bottom: 10px;
+  padding: 5px 0 10px 0;
 
   ul {
     li {
       position: relative;
       line-height: 24px;
-      margin-top: 15px;
+      margin-top: 10px;
       padding-left: 30px;
 
       &::before {

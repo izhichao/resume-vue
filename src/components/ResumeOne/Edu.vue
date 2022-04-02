@@ -2,10 +2,10 @@
   <div class="edu">
     <ContentTitle>教育经历</ContentTitle>
     <div class="content">
-      <div class="content__school mt">
-        <strong>{{ startTime }} - {{ endTime }}</strong>
+      <div class="content__school">
         <strong>{{ school }}</strong>
         <strong>{{ major }} | {{ background }}</strong>
+        <strong>{{ startTime }} - {{ endTime }}</strong>
       </div>
 
       <div class="content__course mt">
@@ -51,19 +51,18 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .mt {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .content {
   font-size: 16px;
-  padding-bottom: 10px;
+  padding: 15px 0 10px 0;
 
   hr {
     border-bottom: 2px dashed #ccc;
   }
 
   &__school {
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
   }

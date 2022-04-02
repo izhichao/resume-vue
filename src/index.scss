@@ -7,8 +7,10 @@
 
 // 字体图标
 @font-face {
-  font-family: 'iconfont';
-  src: url('./assets/font/iconfont.woff2?t=1647438402619') format('woff2'), url('../font/iconfont.woff?t=1647438402619') format('woff'), url('../font/iconfont.ttf?t=1647438402619') format('truetype');
+  font-family: 'iconfont';  /* Project id 3300240 */
+  src: url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.woff2?t=1648911814288') format('woff2'),
+       url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.woff?t=1648911814288') format('woff'),
+       url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.ttf?t=1648911814288') format('truetype');
 }
 
 .iconfont {
@@ -40,9 +42,9 @@ code {
   font-size: 14px;
   line-height: 15px;
   font-weight: 500;
-  color: #494949;
+  color: rgba(0,0,0,0.85);;
   margin: 0 3px;
-  padding: 3px 3px;
+  padding: 3px 4px;
   background-color: #f6f6f6;
   border-radius: 5px;
   border: 1px solid rgb(235, 235, 235);

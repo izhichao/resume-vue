@@ -25,7 +25,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   height: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 
   h3 {
     line-height: 20px;

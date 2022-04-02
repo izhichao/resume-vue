@@ -41,18 +41,30 @@ interface IEdu {
   major: string;
   background: string;
   startTime: string;
-  endTiem: string;
+  endTime: string;
   course: string;
   gpa: string;
   prize: string;
   certificate: string;
 }
 
-const base: IBase
+interface ISkill {
+  id: number;
+  content: string;
+}
 
-const edu: IEdu
+interface IProject {
+  id: number;
+  startTime: string;
+  endTime: string;
+  name: string;
+  link?: string;
+  introduce: string;
+  stack: string[];
+  job: string[];
+}
 
-export { base, edu };
+export { base, edu, skill, project };
 ```
 
 

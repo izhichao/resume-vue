@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref, ref, watch } from 'vue';
+import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 import useColor from './hooks/useColor';
 import { mainStore } from './store';
@@ -93,7 +93,7 @@ export default defineComponent({
 
 main {
   width: 1024px;
-  min-height: 1448px;
+  height: 1448px;
   margin: 0 auto;
   border-radius: 5px;
   background-color: #fff;

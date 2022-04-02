@@ -34,7 +34,7 @@
         <li>
           <a :href="'tel:' + phone">
             {{ formatPhone }}
-            <span class="iconfont">&#xe692;</span>
+            <span class="iconfont">&#xe603;</span>
           </a>
         </li>
       </ul>
@@ -71,7 +71,7 @@ export default defineComponent({
   width: 100%;
   height: 260px;
   background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
-  padding: 1.875rem 3.125rem 0.625rem;
+  padding: 1.875rem 3.75rem 0.625rem;
   display: flex;
   flex-direction: column;
 

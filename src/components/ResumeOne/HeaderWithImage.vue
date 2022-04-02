@@ -51,7 +51,7 @@ export default defineComponent({
   width: 100%;
   height: 260px;
   background: linear-gradient(to right, #6C94C8, #90B8D8);
-  padding: 1.875rem 4.375rem 0.625rem;
+  padding: 1.875rem 3.75rem 0.625rem;
   display: flex;
 
   &__left {

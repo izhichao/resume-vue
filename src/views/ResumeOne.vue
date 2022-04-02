@@ -4,7 +4,7 @@
     <li @click="switchTheme(2)">主题2</li>
   </ul>
   <Header />
-  <div class="content">
+  <div class="detail">
     <Edu />
     <Skill />
     <Project />
@@ -78,8 +78,8 @@ export default defineComponent({
     }
   }
 }
-.content {
+.detail {
   flex: 1;
-  padding: 1.25rem 3.125rem 0.625rem;
+  padding: 1.25rem 3.75rem 3.75rem;
 }
 </style>
