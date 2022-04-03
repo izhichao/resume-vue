@@ -7,7 +7,7 @@
           <strong v-html="item.name"></strong>
           <a :href="item.link" class="content__name__link iconfont" v-if="item.link">&#xe612;</a>
         </div>
-        <strong>{{ item.startTime }} - {{ item.endTime }}</strong>
+        <span class="content__name__time">{{ item.startTime }} - {{ item.endTime }}</span>
       </div>
 
       <div class="content__introduce mt">
@@ -62,7 +62,7 @@ export default defineComponent({
 .content {
   font-size: 16px;
   padding-bottom: 15px;
-  border-bottom: 2px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
 
   &:last-child {
     border-bottom: none;
@@ -81,6 +81,10 @@ export default defineComponent({
       font-weight: 700;
       margin-left: 10px;
     }
+
+    &__time {
+      color: rgba(85, 85, 85, 0.9);
+    }
   }
 
   &__introduce {
@@ -98,7 +102,8 @@ export default defineComponent({
     }
   }
 
-  &__stack,&__job {
+  &__stack,
+  &__job {
     display: flex;
     strong {
       line-height: 30px;

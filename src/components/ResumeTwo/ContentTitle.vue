@@ -1,5 +1,4 @@
 <template>
-  
   <div class="title">
     <slot></slot>
   </div>
@@ -24,5 +23,6 @@ export default defineComponent({
   margin: 20px auto;
   font-size: 19.2px;
   height: 28px;
+  line-height: 28px;
 }
 </style>

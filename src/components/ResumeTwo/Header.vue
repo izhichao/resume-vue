@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img class="header__avatar" src="https://gw.alicdn.com/imgextra/i4/O1CN01tw0KKM24fUkmkolGO_!!6000000007418-2-tps-320-320.png" alt="avatar" />
+    <div class="header__avatar"></div>
   </div>
 
   <div class="info">
@@ -9,17 +9,20 @@
     <div class="info__text mt10">{{ school }} · {{ major }}</div>
     <div class="info__text mt10">{{ gender }} · {{ age }}岁 · {{ background }}</div>
     <div class="info__contact mt10">
-      <a href="">{{ web }}</a>
+      <a href="">
+        <i class="iconfont">&#xe61f;</i>
+        {{ web }}
+      </a>
     </div>
     <div class="info__contact mt10">
-      <a :href="'tel:' + phone">{{ formatPhone }}</a>
-      <a :href="'mailto:' + mail">{{ mail }}</a>
-    </div>
-
-    <div class="icon">
-      <a :href="web" class="iconfont">&#xe61f;</a>
-      <a :href="'tel:' + phone" class="iconfont">&#xe603;</a>
-      <a :href="'mailto:' + mail" class="iconfont">&#xe908;</a>
+      <a :href="'tel:' + phone">
+        <i class="iconfont">&#xe603;</i>
+        {{ formatPhone }}
+      </a>
+      <a :href="'mailto:' + mail">
+        <i class="iconfont">&#xe908;</i>
+        {{ mail }}
+      </a>
     </div>
   </div>
 </template>
@@ -53,24 +56,27 @@ div {
 
 .header {
   background-color: black;
-  height: 170px;
+  height: 120px;
   position: relative;
 
   &__avatar {
-    border: 4px solid whitesmoke;
+    box-sizing: content-box;
+    border: 3px solid whitesmoke;
     border-radius: 50%;
+    height: 98px;
     width: 98px;
     position: absolute;
-    bottom: -27%;
+    bottom: -40%;
     left: 50%;
     transform: translate(-50%);
+    background: url('../../assets/avatar.png') no-repeat;
+    background-size: 105px 105px;
   }
 }
 
 .info {
-  background-color: #fafafa;
   text-align: center;
-  padding: 60px 0 30px 0;
+  padding-top: 50px;
   color: #333;
   h2 {
     font-size: 32px;
@@ -84,18 +90,15 @@ div {
   &__contact {
     a {
       color: #333;
-      &:nth-child(1) {
-        margin-right: 20px;
+      line-height: 24.8px;
+      i {
+        font-size: 20px;
+        margin-right: 5px;
+        vertical-align: bottom;
       }
-    }
-  }
-
-  .icon {
-    margin-top: 10px;
-    a {
-      color: #333;
-      font-size: 24px;
-      margin: 0 10px 0;
+      &:nth-child(1) {
+        margin-right: 30px;
+      }
     }
   }
 }

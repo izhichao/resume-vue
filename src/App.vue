@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, onUpdated, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import useColor from './hooks/useColor';
 import { mainStore } from './store';
@@ -49,9 +49,12 @@ export default defineComponent({
         store.activeColor = store.resumeTwo;
       }
     };
-    setTimeout(() => {
-      initColor();
-    }, 0);
+    watch(
+      () => route.fullPath,
+      () => {
+        initColor();
+      }
+    );
 
     return {
       printResume,

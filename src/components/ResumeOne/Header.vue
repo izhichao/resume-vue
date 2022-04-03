@@ -132,4 +132,14 @@ export default defineComponent({
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .header__title {
+    h1 {
+      small {
+        display: none;
+      }
+    }
+  }
+}
 </style>

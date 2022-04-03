@@ -87,6 +87,10 @@ body {
   .btn-list {
     display: none;
   }
+
+  code {
+    padding: 1px 4px;
+  }
 }
 
 // 打印适配
@@ -96,11 +100,13 @@ body {
     padding: 0;
     background-color: #fff;
   }
+
   main {
     height: 1448px * 1; // 页数
     border-radius: 0 !important;
     box-shadow: none !important;
   }
+
   .btn-list {
     display: none;
   }
