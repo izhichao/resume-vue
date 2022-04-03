@@ -4,7 +4,7 @@
     <li><router-link to="/resume-one" @click="switchModel(1)">模板1</router-link></li>
     <li><router-link to="/resume-two" @click="switchModel(2)">模板2</router-link></li>
   </ul>
-  <main id="print_area">
+  <main>
     <router-view />
   </main>
 </template>
@@ -93,7 +93,7 @@ export default defineComponent({
 
 main {
   width: 1024px;
-  height: 1448px;
+  min-height: 1448px;
   margin: 0 auto;
   border-radius: 5px;
   background-color: #fff;

@@ -7,10 +7,8 @@
 
 // 字体图标
 @font-face {
-  font-family: 'iconfont';  /* Project id 3300240 */
-  src: url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.woff2?t=1648911814288') format('woff2'),
-       url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.woff?t=1648911814288') format('woff'),
-       url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.ttf?t=1648911814288') format('truetype');
+  font-family: 'iconfont'; /* Project id 3300240 */
+  src: url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.woff2?t=1648911814288') format('woff2'), url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.woff?t=1648911814288') format('woff'), url('//at.alicdn.com/t/font_3300240_ko9lyor5hg.ttf?t=1648911814288') format('truetype');
 }
 
 .iconfont {
@@ -42,7 +40,7 @@ code {
   font-size: 14px;
   line-height: 15px;
   font-weight: 500;
-  color: rgba(0,0,0,0.85);;
+  color: rgba(0, 0, 0, 0.85);
   margin: 0 3px;
   padding: 3px 4px;
   background-color: #f6f6f6;
@@ -81,12 +79,13 @@ body {
     padding: 0;
   }
 
-  .btn-list {
-    display: none;
-  }
-
   main {
     width: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .btn-list {
+    display: none;
   }
 }
 
@@ -95,12 +94,24 @@ body {
   body {
     margin: 0;
     padding: 0;
+    background-color: #fff;
   }
   main {
-    border-radius: none;
-    box-shadow: none;
+    height: 1448px * 1; // 页数
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
   .btn-list {
     display: none;
+  }
+
+  code {
+    color: #000;
+  }
+
+  // 另起一页
+  .next-page {
+    margin-top: 50px;
+    page-break-before: always;
   }
 }

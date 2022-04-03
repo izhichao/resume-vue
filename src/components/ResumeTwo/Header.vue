@@ -18,7 +18,7 @@
 
     <div class="icon">
       <a :href="web" class="iconfont">&#xe61f;</a>
-      <a :href="'tel:' + phone" class="iconfont">&#xe692;</a>
+      <a :href="'tel:' + phone" class="iconfont">&#xe603;</a>
       <a :href="'mailto:' + mail" class="iconfont">&#xe908;</a>
     </div>
   </div>

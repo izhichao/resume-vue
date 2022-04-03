@@ -82,4 +82,14 @@ export default defineComponent({
   flex: 1;
   padding: 1.25rem 3.75rem 3.75rem;
 }
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 1.875rem 1.25rem 0.625rem !important;
+  }
+
+  .detail {
+    padding: 1.875rem 1.25rem 0.625rem !important;
+  }
+}
 </style>
