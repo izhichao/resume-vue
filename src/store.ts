@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-
+import { IBase, IEdu, ISkill, IProject } from './types';
 export const mainStore = defineStore('main', {
   state: () => {
     return {

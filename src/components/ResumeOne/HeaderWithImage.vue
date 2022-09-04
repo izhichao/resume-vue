@@ -3,46 +3,38 @@
     <div class="header__left">
       <div class="header__left__title">
         <h1>
-          <span>{{ name }}</span>
+          <span>{{ base.name }}</span>
           <h2>
-            {{ position }} ·
-            <small>{{ city }}</small>
+            {{ base.position }} ·
+            <small>{{ base.city }}</small>
           </h2>
         </h1>
       </div>
 
       <div class="header__left__info">
-        <h2>{{ background }}</h2>
-        <h3>{{ gender }} · {{ age }}岁</h3>
-        <h3>联系电话：{{ formatPhone }}</h3>
-        <h3>邮箱：{{ mail }}</h3>
+        <h2>{{ edu.background }}</h2>
+        <h3>{{ base.gender }} · {{ base.age }}岁</h3>
+        <h3>联系电话：{{ base.formatPhone }}</h3>
+        <h3>邮箱：{{ base.mail }}</h3>
       </div>
     </div>
 
     <div class="header__right">
-      <div class="header__right__avatar">
-
-      </div>
+      <div class="header__right__avatar"></div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { base, edu } from '../../data';
-export default defineComponent({
-  name: 'Header',
-  setup() {
-    const { school, major, background } = edu;
+<script lang="ts" setup>
+import useColor from '../../hooks/useColor';
+import { storeToRefs } from 'pinia';
+import { mainStore } from '../../store';
 
-    return {
-      ...base,
-      school,
-      major,
-      background
-    };
-  }
-});
+const store = mainStore();
+const { base, edu } = storeToRefs(store);
+// 使用自定义Hooks监听color的变化
+
+const [colorOne, colorTwo] = useColor();
 </script>
 
 <style lang="scss" scoped>
@@ -50,7 +42,7 @@ export default defineComponent({
   box-sizing: border-box;
   width: 100%;
   height: 260px;
-  background: linear-gradient(to right, #6C94C8, #90B8D8);
+  background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
   padding: 1.875rem 3.75rem 0.625rem;
   display: flex;
 
@@ -112,7 +104,7 @@ export default defineComponent({
       margin: 20px 0 0 70px;
       width: 122px;
       height: 170px;
-      background:url("../../assets/avatar.jpg") no-repeat -140px -20px;
+      background: url('../../assets/avatar.jpg') no-repeat -140px -20px;
       background-size: 400px auto;
     }
   }

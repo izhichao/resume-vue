@@ -3,50 +3,41 @@
     <ContentTitle>教育经历</ContentTitle>
     <div class="content">
       <div class="content__school">
-        <strong>{{ school }} | {{ major }}</strong>
-        <span class="time">{{ startTime }} - {{ endTime }}</span>
+        <strong>{{ edu.school }} | {{ edu.major }}</strong>
+        <span class="time">{{ edu.startTime }} - {{ edu.endTime }}</span>
       </div>
 
       <div class="content__course mt10">
         <strong>主修课程：</strong>
-        {{ course }}
+        {{ edu.course }}
       </div>
 
       <hr />
 
       <div class="content__gpa mt10">
-        <strong>GPA: {{ gpa }}</strong>
+        <strong>GPA: {{ edu.gpa }}</strong>
       </div>
 
       <div class="content__prize mt10">
         <strong>奖学金：</strong>
-        {{ prize }}
+        {{ edu.prize }}
       </div>
 
       <div class="content__certificate mt10">
         <strong>证书：</strong>
-        {{ certificate }}
+        {{ edu.certificate }}
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
-import { edu } from '../../data';
+import { mainStore } from '../../store';
+import { storeToRefs } from 'pinia';
 
-export default defineComponent({
-  name: 'Edu',
-  components: {
-    ContentTitle
-  },
-  setup() {
-    return {
-      ...edu
-    };
-  }
-});
+const store = mainStore();
+const { edu } = storeToRefs(store);
 </script>
 
 <style lang="scss" scoped>

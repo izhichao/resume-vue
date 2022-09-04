@@ -2,38 +2,38 @@
   <div class="header">
     <div class="header__title">
       <h1>
-        {{ name }}
-        <small>{{ pinyin }}</small>
+        {{ base.name }}
+        <small>{{ base.pinyin }}</small>
       </h1>
       <h2>
-        {{ position }} ·
-        <small>{{ city }}</small>
+        {{ base.position }} ·
+        <small>{{ base.city }}</small>
       </h2>
     </div>
 
     <div class="header__info">
       <section class="header__info__left">
-        <h2>{{ background }}</h2>
-        <h3>{{ school }} · {{ major }}</h3>
-        <h3>{{ gender }} / {{ age }}岁</h3>
+        <h2>{{ edu.background }}</h2>
+        <h3>{{ edu.school }} · {{ edu.major }}</h3>
+        <h3>{{ base.gender }} / {{ base.age }}岁</h3>
       </section>
 
       <ul class="header__info__right">
         <li>
-          <a :href="web">
-            {{ web }}
+          <a :href="base.web">
+            {{ base.web }}
             <span class="iconfont">&#xe61f;</span>
           </a>
         </li>
         <li>
-          <a :href="'mailto:' + mail">
-            {{ mail }}
+          <a :href="'mailto:' + base.mail">
+            {{ base.mail }}
             <span class="iconfont">&#xe908;</span>
           </a>
         </li>
         <li>
-          <a :href="'tel:' + phone">
-            {{ formatPhone }}
+          <a :href="'tel:' + base.phone">
+            {{ base.formatPhone }}
             <span class="iconfont">&#xe603;</span>
           </a>
         </li>
@@ -42,27 +42,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { base, edu } from '../../data';
+<script lang="ts" setup>
 import useColor from '../../hooks/useColor';
-export default defineComponent({
-  name: 'Header',
-  setup() {
-    const { school, major, background } = edu;
-    // 使用自定义Hooks监听color的变化
-    const [colorOne, colorTwo] = useColor();
+import { storeToRefs } from 'pinia';
+import { mainStore } from '../../store';
 
-    return {
-      ...base,
-      school,
-      major,
-      background,
-      colorOne,
-      colorTwo
-    };
-  }
-});
+const store = mainStore();
+const { base, edu } = storeToRefs(store);
+// 使用自定义Hooks监听color的变化
+const [colorOne, colorTwo] = useColor();
 </script>
 
 <style lang="scss" scoped>

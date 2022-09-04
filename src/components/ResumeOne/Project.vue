@@ -34,8 +34,11 @@
 
 <script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
-import { project } from '../../data';
 import useColor from '../../hooks/useColor';
+import { mainStore } from '../../store';
+import { storeToRefs } from 'pinia';
+const store = mainStore();
+const { project } = storeToRefs(store);
 const [colorOne, colorTwo] = useColor();
 </script>
 

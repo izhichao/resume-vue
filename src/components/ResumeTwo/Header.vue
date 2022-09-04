@@ -4,45 +4,35 @@
   </div>
 
   <div class="info">
-    <h2 class="mt10">{{ name }}</h2>
-    <h3 class="mt10">{{ position }}</h3>
-    <div class="info__text mt10">{{ school }} · {{ major }}</div>
-    <div class="info__text mt10">{{ gender }} · {{ age }}岁 · {{ background }}</div>
+    <h2 class="mt10">{{ base.name }}</h2>
+    <h3 class="mt10">{{ base.position }}</h3>
+    <div class="info__text mt10">{{ edu.school }} · {{ edu.major }}</div>
+    <div class="info__text mt10">{{ base.gender }} · {{ base.age }}岁 · {{ edu.background }}</div>
     <div class="info__contact mt10">
       <a href="">
         <i class="iconfont">&#xe61f;</i>
-        {{ web }}
+        {{ base.web }}
       </a>
     </div>
     <div class="info__contact mt10">
-      <a :href="'tel:' + phone">
+      <a :href="'tel:' + base.phone">
         <i class="iconfont">&#xe603;</i>
-        {{ formatPhone }}
+        {{ base.formatPhone }}
       </a>
-      <a :href="'mailto:' + mail">
+      <a :href="'mailto:' + base.mail">
         <i class="iconfont">&#xe908;</i>
-        {{ mail }}
+        {{ base.mail }}
       </a>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { base, edu } from '../../data';
-export default defineComponent({
-  name: 'Header',
-  setup() {
-    const { school, major, background } = edu;
+<script lang="ts" setup>
+import { storeToRefs } from 'pinia';
+import { mainStore } from '../../store';
 
-    return {
-      ...base,
-      school,
-      major,
-      background
-    };
-  }
-});
+const store = mainStore();
+const { base, edu } = storeToRefs(store);
 </script>
 
 <style lang="scss" scoped>
