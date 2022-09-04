@@ -20,52 +20,9 @@ npm run dev
 
 ## 修改数据
 
-在 src 文件夹下新建文件名为 data.ts，复制以下代码，根据接口内容初始化相应的值。
+在 store.ts 文件的 state 中 新增 base edu skill project
 
-```ts
-interface IBase {
-  name: string;
-  pinyin: string;
-  city: string;
-  position: string;
-  gender: string;
-  age: number;
-  web: string;
-  mail: string;
-  phone: string;
-  formatPhone: string;
-}
-
-interface IEdu {
-  school: string;
-  major: string;
-  background: string;
-  startTime: string;
-  endTime: string;
-  course: string;
-  gpa: string;
-  prize: string;
-  certificate: string;
-}
-
-interface ISkill {
-  id: number;
-  content: string;
-}
-
-interface IProject {
-  id: number;
-  startTime: string;
-  endTime: string;
-  name: string;
-  link?: string;
-  introduce: string;
-  stack: string[];
-  job: string[];
-}
-
-export { base, edu, skill, project };
-```
+其中的类型请参考 types.ts 文件
 
 
 
