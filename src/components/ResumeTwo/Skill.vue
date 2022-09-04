@@ -9,27 +9,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
 import { skill } from '../../data';
 import useColor from '../../hooks/useColor';
-
-export default defineComponent({
-  name: 'Edu',
-  components: {
-    ContentTitle
-  },
-  setup() {
-    const [colorOne, colorTwo] = useColor();
-
-    return {
-      skill,
-      colorOne,
-      colorTwo
-    };
-  }
-});
+const [colorOne, colorTwo] = useColor();
 </script>
 
 <style lang="scss" scoped>

@@ -32,26 +32,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
 import { project } from '../../data';
 import useColor from '../../hooks/useColor';
-export default defineComponent({
-  name: 'Project',
-  components: {
-    ContentTitle
-  },
-  setup() {
-    const [colorOne, colorTwo] = useColor();
-
-    return {
-      project,
-      colorOne,
-      colorTwo
-    };
-  }
-});
+const [colorOne, colorTwo] = useColor();
 </script>
 
 <style lang="scss" scoped>
@@ -98,7 +83,8 @@ export default defineComponent({
     }
   }
 
-  &__stack,&__job {
+  &__stack,
+  &__job {
     display: flex;
     strong {
       line-height: 30px;

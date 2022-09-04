@@ -10,20 +10,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import Header from '../components/ResumeTwo/Header.vue';
 import Edu from '../components/ResumeTwo/Edu.vue';
 import Skill from '../components/ResumeTwo/Skill.vue';
 import Project from '../components/ResumeTwo/Project.vue';
 
-export default defineComponent({
-  components: { Header, Edu, Skill, Project },
-  name: 'ResumeTwo',
-  setup() {
-    return {};
-  }
-});
 </script>
 
 <style lang="scss" scoped>

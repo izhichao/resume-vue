@@ -11,44 +11,26 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import Header from '../components/ResumeOne/Header.vue';
-import HeaderWithImage from '../components/ResumeOne/HeaderWithImage.vue';
 import Edu from '../components/ResumeOne/Edu.vue';
 import Skill from '../components/ResumeOne/Skill.vue';
 import Project from '../components/ResumeOne/Project.vue';
 import useColor from '../hooks/useColor';
 import { mainStore } from '../store';
 
-export default defineComponent({
-  name: 'ResumeOne',
-  components: {
-    Header,
-    Edu,
-    Skill,
-    Project,
-    HeaderWithImage
-  },
-  setup() {
-    // 获取按钮颜色
-    const [color] = useColor();
+// 获取按钮颜色
+const [color] = useColor();
 
-    // 主题切换
-    const store = mainStore();
-    const switchTheme = (val: number) => {
-      if (val === 1) {
-        store.activeColor = store.resumeOneThemeOne;
-      } else if (val === 2) {
-        store.activeColor = store.resumeOneThemeTwo;
-      }
-    };
-    return {
-      switchTheme,
-      color
-    };
+// 主题切换
+const store = mainStore();
+const switchTheme = (val: number) => {
+  if (val === 1) {
+    store.activeColor = store.resumeOneThemeOne;
+  } else if (val === 2) {
+    store.activeColor = store.resumeOneThemeTwo;
   }
-});
+};
 </script>
 
 <style lang="scss" scoped>

@@ -4,20 +4,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import useColor from '../../hooks/useColor';
 
-export default defineComponent({
-  name: 'ContentTitle',
-  setup() {
-    const [ colorOne, colorTwo ] = useColor();
-    return {
-      colorOne,
-      colorTwo
-    };
-  }
-});
+const [colorOne, colorTwo] = useColor();
 </script>
 
 <style lang="scss" scoped>

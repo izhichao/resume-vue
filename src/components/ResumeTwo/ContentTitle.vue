@@ -4,16 +4,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'ContentTitle',
-  setup() {
-    return {};
-  }
-});
-</script>
-
 <style lang="scss" scoped>
 .title {
   text-align: center;
