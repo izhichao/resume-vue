@@ -37,6 +37,7 @@ interface IProject {
   introduce: string;
   stack: string[];
   job: string[];
+  qrcode: string;
 }
 
 export {

@@ -2,6 +2,9 @@
   <div class="project">
     <ContentTitle>项目经验</ContentTitle>
     <div class="content" v-for="item in project" :key="item.id">
+      <div class="content__qrcode" v-if="item.qrcode">
+        <img :src="item.qrcode" />
+      </div>
       <div class="content__name">
         <div>
           <strong v-html="item.name"></strong>
@@ -44,13 +47,26 @@ const [colorOne, colorTwo] = useColor();
 
 <style lang="scss" scoped>
 .mt {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .content {
   font-size: 16px;
   padding-bottom: 15px;
   border-bottom: 2px dashed #ccc;
+  position: relative;
+
+  &__qrcode {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 30px;
+    top: 80px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
   &:last-child {
     border-bottom: none;
