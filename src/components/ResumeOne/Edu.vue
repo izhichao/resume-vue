@@ -43,7 +43,7 @@ const { edu } = storeToRefs(store);
 
 <style lang="scss" scoped>
 .mt {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .content {

@@ -21,13 +21,13 @@ const [colorOne, colorTwo] = useColor();
 
 <style lang="scss" scoped>
 .content {
-  padding: 5px 0 10px 0;
+  padding: 0 0 10px 0;
 
   ul {
     li {
       position: relative;
       line-height: 24px;
-      margin-top: 10px;
+      margin-top: 15px;
       padding-left: 30px;
 
       &::before {
