@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import useColor from '../../hooks/useColor';
+import { useColor } from '../../composables/useColor';
 
-const [colorOne, colorTwo] = useColor();
+const { colorOne, colorTwo } = useColor();
 </script>
 
 <style lang="scss" scoped>

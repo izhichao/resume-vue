@@ -1,7 +1,7 @@
 import { ref, watch } from 'vue';
 import { mainStore } from '../store';
 
-export default function useColor() {
+export const useColor = () => {
   const store = mainStore();
   const colorOne = ref(store.activeColor[0]);
   const colorTwo = ref(store.activeColor[1]);
@@ -15,9 +15,8 @@ export default function useColor() {
     }
   );
 
-  return [
+  return {
     colorOne,
     colorTwo
-  ]
-}
-
+  };
+};

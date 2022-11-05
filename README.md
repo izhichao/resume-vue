@@ -20,9 +20,16 @@ npm run dev
 
 ## 修改数据
 
-在 store.ts 文件的 state 中 新增 base edu skill project
+1. 在 src 中创建 `data.ts` 文件
 
-其中的类型请参考 types.ts 文件
+2. 导出一个 data 对象，其中类型参考 UserType
+
+```ts
+import { UserType } from './types';
+export const data: UserType = {};
+```
+
+
 
 
 

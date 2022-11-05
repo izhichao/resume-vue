@@ -28,11 +28,9 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia';
-import { mainStore } from '../../store';
+import { useUser } from '../../composables/useUser';
 
-const store = mainStore();
-const { base, edu } = storeToRefs(store);
+const { base, edu } = useUser();
 </script>
 
 <style lang="scss" scoped>

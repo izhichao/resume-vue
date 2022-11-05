@@ -3,7 +3,7 @@
     <ContentTitle>专业技能</ContentTitle>
     <div class="content">
       <ul>
-        <li v-for="item in skill" :key="item.id" v-html="item.content"></li>
+        <li v-for="item in skill" v-html="item"></li>
       </ul>
     </div>
   </div>
@@ -11,12 +11,11 @@
 
 <script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
-import useColor from '../../hooks/useColor';
-import { mainStore } from '../../store';
-import { storeToRefs } from 'pinia';
-const store = mainStore();
-const { skill } = storeToRefs(store);
-const [colorOne, colorTwo] = useColor();
+import { useColor } from '../../composables/useColor';
+import { useUser } from '../../composables/useUser';
+
+const { colorOne, colorTwo } = useColor();
+const { skill } = useUser();
 </script>
 
 <style lang="scss" scoped>
@@ -32,14 +31,14 @@ const [colorOne, colorTwo] = useColor();
 
       &::before {
         content: '';
-        display: inline-block;
+        display: block;
         width: 8px;
         height: 8px;
         background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
         position: absolute;
         top: 8px;
         left: 11px;
-        border-radius: 5px;
+        border-radius: 4px;
       }
     }
   }

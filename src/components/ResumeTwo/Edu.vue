@@ -33,11 +33,9 @@
 
 <script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
-import { mainStore } from '../../store';
-import { storeToRefs } from 'pinia';
+import { useUser } from '../../composables/useUser';
 
-const store = mainStore();
-const { edu } = storeToRefs(store);
+const { edu } = useUser();
 </script>
 
 <style lang="scss" scoped>

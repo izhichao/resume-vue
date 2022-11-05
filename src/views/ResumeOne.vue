@@ -16,11 +16,11 @@ import Header from '../components/ResumeOne/Header.vue';
 import Edu from '../components/ResumeOne/Edu.vue';
 import Skill from '../components/ResumeOne/Skill.vue';
 import Project from '../components/ResumeOne/Project.vue';
-import useColor from '../hooks/useColor';
+import { useColor } from '../composables/useColor';
 import { mainStore } from '../store';
 
 // 获取按钮颜色
-const [color] = useColor();
+const { colorOne: color } = useColor();
 
 // 主题切换
 const store = mainStore();

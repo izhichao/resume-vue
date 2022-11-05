@@ -1,10 +1,7 @@
 <template>
   <div class="project">
-    <ContentTitle>项目经验</ContentTitle>
+    <ContentTitle>个人项目</ContentTitle>
     <div class="content" v-for="item in project" :key="item.id">
-      <div class="content__qrcode" v-if="item.qrcode">
-        <img :src="item.qrcode" />
-      </div>
       <div class="content__name">
         <div>
           <strong v-html="item.name"></strong>
@@ -37,12 +34,11 @@
 
 <script lang="ts" setup>
 import ContentTitle from './ContentTitle.vue';
-import useColor from '../../hooks/useColor';
-import { mainStore } from '../../store';
-import { storeToRefs } from 'pinia';
-const store = mainStore();
-const { project } = storeToRefs(store);
-const [colorOne, colorTwo] = useColor();
+import { useColor } from '../../composables/useColor';
+import { useUser } from '../../composables/useUser';
+
+const { colorOne, colorTwo } = useColor();
+const { project } = useUser();
 </script>
 
 <style lang="scss" scoped>
@@ -55,18 +51,6 @@ const [colorOne, colorTwo] = useColor();
   padding-bottom: 15px;
   border-bottom: 2px dashed #ccc;
   position: relative;
-
-  &__qrcode {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    right: 30px;
-    top: 80px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
 
   &:last-child {
     border-bottom: none;
@@ -92,7 +76,7 @@ const [colorOne, colorTwo] = useColor();
 
     strong {
       line-height: 30px;
-      width: 70px;
+      flex-basis: 70px;
     }
 
     &__detail {
@@ -107,7 +91,7 @@ const [colorOne, colorTwo] = useColor();
     display: flex;
     strong {
       line-height: 30px;
-      width: 70px;
+      flex-basis: 70px;
     }
 
     ul {
@@ -138,14 +122,14 @@ ul {
 
     &::before {
       content: '';
-      display: inline-block;
+      display: block;
       width: 8px;
       height: 8px;
       background: linear-gradient(to right, v-bind(colorOne), v-bind(colorTwo));
       position: absolute;
       top: 8px;
       left: 11px;
-      border-radius: 5px;
+      border-radius: 4px;
     }
   }
 }

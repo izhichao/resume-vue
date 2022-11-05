@@ -26,15 +26,11 @@
 </template>
 
 <script lang="ts" setup>
-import useColor from '../../hooks/useColor';
-import { storeToRefs } from 'pinia';
-import { mainStore } from '../../store';
+import { useColor } from '../../composables/useColor';
+import { useUser } from '../../composables/useUser';
 
-const store = mainStore();
-const { base, edu } = storeToRefs(store);
-// 使用自定义Hooks监听color的变化
-
-const [colorOne, colorTwo] = useColor();
+const { base, edu } = useUser();
+const { colorOne, colorTwo } = useColor();
 </script>
 
 <style lang="scss" scoped>

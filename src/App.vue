@@ -9,60 +9,45 @@
   </main>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, onUpdated, watch } from 'vue';
+<script lang="ts" setup>
+import { watch } from 'vue';
 import { useRoute } from 'vue-router';
-import useColor from './hooks/useColor';
+import { useColor } from './composables/useColor';
 import { mainStore } from './store';
-import ResumeOne from './views/ResumeOne.vue';
-import ResumeTwo from './views/ResumeTwo.vue';
 
-export default defineComponent({
-  components: { ResumeOne, ResumeTwo },
-  name: 'Home',
+// 打印按钮
+const printResume = () => {
+  window.print();
+};
 
-  setup() {
-    // 打印按钮
-    const printResume = () => {
-      window.print();
-    };
+// 获取按钮颜色
+const { colorOne: color } = useColor();
 
-    // 获取按钮颜色
-    const [, color] = useColor();
-
-    // 模板切换
-    const store = mainStore();
-    const switchModel = (val: number) => {
-      if (val === 1) {
-        store.activeColor = store.resumeOneThemeOne;
-      } else if (val === 2) {
-        store.activeColor = store.resumeTwo;
-      }
-    };
-
-    // 初始化颜色
-    const route = useRoute();
-    const initColor = () => {
-      if (route.fullPath === '/resume-one') {
-        store.activeColor = store.resumeOneThemeOne;
-      } else if (route.fullPath === '/resume-two') {
-        store.activeColor = store.resumeTwo;
-      }
-    };
-    watch(
-      () => route.fullPath,
-      () => {
-        initColor();
-      }
-    );
-
-    return {
-      printResume,
-      switchModel,
-      color
-    };
+// 模板切换
+const store = mainStore();
+const switchModel = (val: number) => {
+  if (val === 1) {
+    store.activeColor = store.resumeOneThemeOne;
+  } else if (val === 2) {
+    store.activeColor = store.resumeTwo;
   }
-});
+};
+
+// 初始化颜色
+const route = useRoute();
+const initColor = () => {
+  if (route.fullPath === '/resume-one') {
+    store.activeColor = store.resumeOneThemeOne;
+  } else if (route.fullPath === '/resume-two') {
+    store.activeColor = store.resumeTwo;
+  }
+};
+watch(
+  () => route.fullPath,
+  () => {
+    initColor();
+  }
+);
 </script>
 
 <style lang="scss" scoped>
