@@ -1,7 +1,6 @@
-interface IBase {
+type BaseType = {
   name: string;
   pinyin: string;
-  city: string;
   position: string;
   gender: string;
   age: number;
@@ -9,9 +8,10 @@ interface IBase {
   mail: string;
   phone: string;
   formatPhone: string;
-}
+  city?: string;
+};
 
-interface IEdu {
+type EduType = {
   school: string;
   major: string;
   background: string;
@@ -21,14 +21,11 @@ interface IEdu {
   gpa: string;
   prize: string;
   certificate: string;
-}
+};
 
-interface ISkill {
-  id: number;
-  content: string;
-}
+type SkillType = string[];
 
-interface IProject {
+type ProjectType = {
   id: number;
   startTime: string;
   endTime: string;
@@ -37,12 +34,11 @@ interface IProject {
   introduce: string;
   stack: string[];
   job: string[];
-  qrcode: string;
-}
+};
 
-export {
-  IBase,
-  IEdu,
-  ISkill,
-  IProject
-}
+export type UserType = {
+  base: BaseType;
+  edu: EduType;
+  skill: SkillType;
+  project: ProjectType[];
+};
